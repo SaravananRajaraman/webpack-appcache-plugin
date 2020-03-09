@@ -1,7 +1,7 @@
 {
-  "name": "appcache-webpack-plugin",
-  "version": "1.4.0",
-  "author": "Eric Eldredge <lettertwo@gmail.com>",
+  "name": "webpack-appcache-plugin",
+  "version": "1.0.0",
+  "author": "Saravanan Rajaraman <rsaravanan.btech@gmail.com>",
   "description": "Generate an HTML5 Application Cache for a Webpack build",
   "main": "./lib/index.js",
   "peerDependencies": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/lettertwo/appcache-webpack-plugin.git"
+    "url": "https://github.com/SaravananRajaraman/webpack-appcache-plugin.git"
   },
   "keywords": [
     "webpack",
@@ -24,9 +24,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lettertwo/appcache-webpack-plugin/issues"
+    "url": "https://github.com/SaravananRajaraman/webpack-appcache-plugin"
   },
-  "homepage": "https://github.com/lettertwo/appcache-webpack-plugin",
+  "homepage": "https://github.com/SaravananRajaraman/webpack-appcache-plugin",
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.8.23",

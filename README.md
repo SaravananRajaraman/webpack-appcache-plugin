@@ -30,6 +30,7 @@ Arguments:
 * `exclude`: An array of strings or regex patterns. Assets in the compilation
 that match any of these patterns will be excluded from the manifest.
 * `output`: The filename to write the appcache to
+* `publicPath`: A string to override the path on run time.
 
 ## License
 

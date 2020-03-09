@@ -1,6 +1,6 @@
 class AppCache {
 
-  constructor(cache, network, fallback, settings, hash, comment) {
+  constructor(cache, network, fallback, settings, hash, comment, publicPath) {
     this.cache = cache;
     this.network = network;
     this.fallback = fallback;
@@ -8,6 +8,7 @@ class AppCache {
     this.hash = hash;
     this.comment = comment;
     this.assets = [];
+    this.publicPath = '';
   }
 
   addAsset(asset) {
@@ -50,12 +51,14 @@ export default class AppCachePlugin {
     exclude = [],
     output = 'manifest.appcache',
     comment,
+    publicPath
   } = {}) {
     this.cache = cache;
     this.network = network;
     this.fallback = fallback;
     this.settings = settings;
     this.output = output;
+    this.publicPath = publicPath
     this.comment = comment ? `# ${comment}\n` : '';
 
     // Convert exclusion strings to RegExp.
@@ -70,10 +73,11 @@ export default class AppCachePlugin {
     const {publicPath = ''} = outputOptions;
 
     const buildAppCache = (compilation) => {
+      const _publicPath = this.publicPath === undefined ? publicPath : this.publicPath;
       const appCache = new AppCache(this.cache, this.network, this.fallback, this.settings, compilation.hash, this.comment);
       Object.keys(compilation.assets)
         .filter(asset => !this.exclude.some(pattern => pattern.test(asset)))
-        .forEach(asset => appCache.addAsset(publicPath + asset));
+        .forEach(asset => appCache.addAsset(_publicPath + asset));
       compilation.assets[this.output] = appCache;
     };
 
